@@ -1,12 +1,12 @@
-
+require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 
 // Using Node.js `require()`
 const mongoose = require('mongoose');
 const { post } = require('request');
-
-mongoose.connect('mongodb://127.0.0.1:27017/Project_exh');
+const url = process.env.MONGODB_URL
+mongoose.connect(url);
 
 const app = express()
 const port = 3000
@@ -178,6 +178,6 @@ app.post("/view/:id/replies", (req, res) => {
 
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Example app listening on port ${port}`)
 })
