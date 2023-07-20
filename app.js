@@ -11,8 +11,8 @@ mongoose.connect("mongodb+srv://Ravi02rr:slrbkMeyLMxjBfs3@cluster0.pa8zqtm.mongo
     .then(() => console.log("data base connected"))
     .catch((e) => console.log(e));
 
-
-app.set('views engine', 'ejs');
+app.set('view engine', 'ejs');
+app.set('views', './views');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
